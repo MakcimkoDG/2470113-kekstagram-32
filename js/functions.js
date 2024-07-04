@@ -1,17 +1,17 @@
 function lengthCheck (input, maxLength) {
   return input.length <= maxLength;
 }
-lengthCheck();
+lengthCheck('проверяемая строка', 20);
+lengthCheck('проверяемая строка', 18);
+lengthCheck('проверяемая строка', 10);
 
 function palyndromeCheck (input) {
-  input = input.replaceAll(' ', '');
-  input = input.toUpperCase();
-  let palyndrome = input.split('');
-  palyndrome = palyndrome.reverse();
-  palyndrome = palyndrome.join('');
-  return palyndrome === input.toUpperCase();
+  input = input.replaceAll(' ', '').toUpperCase();
+  return input.split('').reverse().join('') === input;
 }
-palyndromeCheck ();
+palyndromeCheck ('ДовОд');
+palyndromeCheck ('Кекс');
+palyndromeCheck ('Лёша на полке клопа нашёл ');
 
 function numberReturn (input) {
   input = input.toString().split('');
@@ -22,10 +22,17 @@ function numberReturn (input) {
     }
   }
   inputNumber = inputNumber.join('');
-  if(inputNumber > 0) {
+  if(inputNumber.length > 0) {
     return inputNumber;
   } else {
     return NaN;
   }
 }
-numberReturn();
+numberReturn('2023 год');
+numberReturn('ECMAScript 2022');
+numberReturn('1 кефир, 0.5 батона');
+numberReturn('агент 007');
+numberReturn('а я томат');
+numberReturn(2023);
+numberReturn(-1);
+numberReturn(1.5);
